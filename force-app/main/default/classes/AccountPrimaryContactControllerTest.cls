@@ -1,5 +1,5 @@
 @isTest
-private class TestAccountPrimaryContactController {
+private class AccountPrimaryContactControllerTest {
     @testSetup static void setup() {
         Account acc = new Account(Name='Big Company', AccountNumber='515', Type='Prospect', Active__c='True', Phone='123456789', Fax='987654321');
         insert acc;
@@ -56,7 +56,7 @@ private class TestAccountPrimaryContactController {
         System.assertEquals('Contact1999', controller.contactsList.get(0).Name);
     }
 
-    @isTest static void testMoveToPage() {
+    @isTest static void testGoToPage() {
         Account acc = [SELECT Id FROM Account];
         PageReference testPage = Page.AccountAndContacts; 
         Test.setCurrentPage(testPage);
@@ -66,24 +66,24 @@ private class TestAccountPrimaryContactController {
 
         Test.startTest();
         controller.currentPage = 5;
-        controller.moveToPage();
+        controller.goToPage();
         System.assertEquals(5, controller.currentPage);
 
         controller.currentPage = -100;
-        controller.moveToPage();
+        controller.goToPage();
         System.assertEquals(1, controller.currentPage);
 
         controller.currentPage = 0;
-        controller.moveToPage();
+        controller.goToPage();
         System.assertEquals(1, controller.currentPage);
 
         controller.currentPage = 1000;
-        controller.moveToPage();
+        controller.goToPage();
         System.assertEquals(40, controller.currentPage);
         Test.stopTest();
     }
 
-    @isTest static void testMoveToNextPage() {
+    @isTest static void testGoToNextPage() {
         Account acc = [SELECT Id FROM Account];
         PageReference testPage = Page.AccountAndContacts; 
         Test.setCurrentPage(testPage);
@@ -101,12 +101,12 @@ private class TestAccountPrimaryContactController {
         System.assertEquals(true, controller.isDisabledNextBttn);
 
         controller.currentPage = 20;
-        controller.moveToNextPage();
+        controller.goToNextPage();
         System.assertEquals(false, controller.isDisabledNextBttn);
         Test.stopTest();
     }
 
-    @isTest static void testMoveToPrevPage() {
+    @isTest static void testGoToPrevPage() {
         Account acc = [SELECT Id FROM Account];
         PageReference testPage = Page.AccountAndContacts; 
         Test.setCurrentPage(testPage);
@@ -124,7 +124,7 @@ private class TestAccountPrimaryContactController {
         System.assertEquals(false, controller.isDisabledPrevBttn);
 
         controller.currentPage = 20;
-        controller.moveToPrevPage();
+        controller.goToPrevPage();
         System.assertEquals(false, controller.isDisabledPrevBttn);
         Test.stopTest();
     }
