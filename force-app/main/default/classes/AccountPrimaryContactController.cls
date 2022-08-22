@@ -32,7 +32,7 @@ public with sharing class AccountPrimaryContactController {
             acc = [Select Id, Name, AccountNumber, Type, Active__c, Phone, Fax 
             FROM Account
             WHERE Id = :ApexPages.currentPage().getParameters().get('Id')];
-        } catch (Exception e) {
+        } catch (DmlException e) {
             System.debug('The following exception has occurred: ' + e.getMessage());
         }
         calculatePagesCount();
@@ -82,7 +82,7 @@ public with sharing class AccountPrimaryContactController {
 
 /**************************************************************************************
  * @Name          : setPrimaryContact
- * @Description   : Sets selected contact as primary and all the other contacts will be secondary   
+ * @Description   : Sets selected contact as primary
  * @Created By    : Artur Kostetskyi
  * @Created Date  : Aug 19, 2022
  
@@ -118,13 +118,13 @@ public with sharing class AccountPrimaryContactController {
     }
 
 /**************************************************************************************
- * @Name          : moveToPage
- * @Description   : Goes to the specified page    
+ * @Name          : goToPage
+ * @Description   : Go to the specified page    
  * @Created By    : Artur Kostetskyi
  * @Created Date  : Aug 19, 2022
  
 *************************************************************************************/ 
-    public void moveToPage() {        
+    public void goToPage() {        
         if (currentPage < 1) {
             currentPage = 1;
             getRelatedContacts();
@@ -137,32 +137,32 @@ public with sharing class AccountPrimaryContactController {
     }
 
 /**************************************************************************************
- * @Name          : moveToNextPage
- * @Description   : Goes to the next page    
+ * @Name          : goToNextPage
+ * @Description   : Go to the next page    
  * @Created By    : Artur Kostetskyi
  * @Created Date  : Aug 19, 2022
  
  *************************************************************************************/ 
-    public void moveToNextPage() {
+    public void goToNextPage() {
         currentPage++;
         getRelatedContacts();
     }
 
 /**************************************************************************************
- * @Name          : moveToPrevPage
- * @Description   : Goes to the previous page    
+ * @Name          : goToPrevPage
+ * @Description   : Go to the previous page    
  * @Created By    : Artur Kostetskyi
  * @Created Date  : Aug 19, 2022
  
 *************************************************************************************/ 
-    public void moveToPrevPage() {
+    public void goToPrevPage() {
         currentPage--;
         getRelatedContacts();
     }
 
 /**************************************************************************************
  * @Name          : calculatePagesCount
- * @Description   : Calculates the number of pages
+ * @Description   : Calculate the number of pages
  * @Created By    : Artur Kostetskyi
  * @Created Date  : Aug 19, 2022
  

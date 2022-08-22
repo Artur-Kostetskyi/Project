@@ -39,11 +39,11 @@
                 </apex:column>
             </apex:pageBlockTable>
             <apex:outputText style="font-style:italic; style:bold" value="Current Page: "/>
-            <apex:actionFunction action="{!moveToPage}" name="moveToPage"/>
-            <apex:inputText value="{!currentPage}" style="font-style:italic" size="1" onchange="moveToPage()"/>
-            <apex:commandButton action="{!moveToPage}" value="OK"/>
-            <apex:commandButton action="{!moveToPrevPage}" value="Prev page" disabled="{!isDisabledPrevBttn}" style="margin-left: 35%"/>
-            <apex:commandButton action="{!moveToNextPage}" value="Next page" disabled="{!isDisabledNextBttn}" style="float:centre"/>
+            <apex:actionFunction action="{!goToPage}" name="goToPage"/>
+            <apex:inputText value="{!currentPage}" style="font-style:italic" size="1" onchange="goToPage()"/>
+            <apex:commandButton action="{!goToPage}" value="OK"/>
+            <apex:commandButton action="{!goToPrevPage}" value="Prev page" disabled="{!isDisabledPrevBttn}" style="margin-left: 35%"/>
+            <apex:commandButton action="{!goToNextPage}" value="Next page" disabled="{!isDisabledNextBttn}" style="float:centre"/>
             <apex:outputText value="Pages: {!totalPagesCount}" style="float:right; font-style:italic; style:bold"/>
          </apex:pageBlock>
         </apex:form>
