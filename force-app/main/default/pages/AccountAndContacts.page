@@ -18,14 +18,14 @@
             </apex:pageBlock>
         </apex:form>
 
-        <apex:form> 
+        <apex:form > 
             <apex:pageBlock title="Search related contacts">
                 <apex:inputText value="{!nameFilter}"/>
                 <apex:commandButton action="{!doSearch}" value="Search"/>
             </apex:pageBlock>
         </apex:form>
 
-        <apex:form> 
+        <apex:form > 
         <apex:pageBlock title="Related Contacts">
             <apex:pageBlockTable value="{!contactsList}" var="contact" >
                <apex:column value="{!contact.Name}"/>

@@ -1,0 +1,55 @@
+<messaging:emailTemplate subject="Summarized Opportunities Amounts" recipientType="Contact" relatedToType="Account">
+<messaging:htmlEmailBody >
+
+<html>
+    <body>
+        <div style = "margin-left: 1px"> 
+            <p>Below is a table of opportunities related to the account: {!relatedTo.Name}.</p>
+            <br></br>
+            <table cellpadding="2" cellspasing="2" style="outline: #a9a9a9 solid 1px">
+                <tr> 
+                    <th style = "background-color: #a9a9a9">Account</th>
+                    <th style = "background-color: #a9a9a9">Stage</th>
+                    <th style = "background-color: #a9a9a9">Amount</th>
+                </tr>
+                <tr>
+                    <td>{!relatedTo.Name}</td>
+                    <td>Open</td>
+                    <td>
+                        <apex:outputText value="€{0, Number,###,###,###,##0,000}" rendered="{!(relatedTo.Open_Opportunities_Amount__c > 0)}">
+                            <apex:param value="{!relatedTo.Open_Opportunities_Amount__c}" />
+                        </apex:outputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{!relatedTo.Name}</td>
+                    <td>Closed Won</td>
+                    <td>
+                        <apex:outputText value="€{0, Number,###,###,###,##0,000}" rendered="{!(relatedTo.Closed_Won_Opportunities_Amount__c > 0)}">
+                            <apex:param value="{!relatedTo.Closed_Won_Opportunities_Amount__c}" />
+                        </apex:outputText>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>{!relatedTo.Name}</td>
+                    <td>Closed Lost</td>
+                    <td>
+                        <apex:outputText value="€{0, Number,###,###,###,##0,000}" rendered="{!(relatedTo.Closed_Lost_Opportunities_Amount__c > 0)}">
+                            <apex:param value="{!relatedTo.Closed_Lost_Opportunities_Amount__c}" />
+                        </apex:outputText>
+                    </td>
+                </tr> 
+            </table>
+            <br></br>
+            <br></br>
+            <br></br>
+            <hr></hr>
+            <p>Powered by SalesForce</p>
+            <p>http://www.salesforce.com/</p>
+        </div>
+    </body>
+</html>
+
+
+</messaging:htmlEmailBody >
+</messaging:emailTemplate>

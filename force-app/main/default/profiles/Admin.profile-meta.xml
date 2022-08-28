@@ -96,7 +96,39 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
-        <apexClass>ContactsListController</apexClass>
+        <apexClass>AccountInfo</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AccountPrimaryContactController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AccountPrimaryContactControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContactTriggerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PrimaryContactHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>PrimaryContactPhoneUpdater</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ScheduleOpportunityAmountsCalculations</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SummarizeOpportunityAmountTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SummarizeOpportunityAmounts</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>false</custom>
