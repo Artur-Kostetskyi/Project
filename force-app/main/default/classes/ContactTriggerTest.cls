@@ -62,21 +62,4 @@ public with sharing class ContactTriggerTest {
             System.assertEquals(newPrimaryContact.Phone, currentContact.Primary_Contact_Phone__c);
         }
     }
-
-    static void testFailUpdateContact() {
-        Contact newPrimaryContact = [SELECT Id, Phone, Is_Primary_Contact__c FROM Contact WHERE LastName = 'Contact200'];
-        newPrimaryContact.Is_Primary_Contact__c = true;
-        List<Contact> contactsForUpdate = new List<Contact>();
-        contactsForUpdate.Add(newPrimaryContact);
-        
-        Contact wrongContact = [SELECT LastName FROM Contact WHERE LastName = 'Contact300'];
-
-        Test.startTest();
-        update contactsForUpdate;
-        Test.stopTest();
-        
-        for(Contact currentContact : [SELECT Id, Primary_Contact_Phone__c FROM Contact]) {
-            System.assertEquals(newPrimaryContact.Phone, currentContact.Primary_Contact_Phone__c);
-        }
-    }
 }

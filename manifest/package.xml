@@ -161,6 +161,10 @@
 		<name>EclairGeoData</name>
 	</types>
 	<types>
+		<members>unfiled$public/Summarized_all_Opportunities_Amounts</members>
+		<name>EmailTemplate</name>
+	</types>
+	<types>
 		<members>*</members>
 		<name>EntitlementProcess</name>
 	</types>
