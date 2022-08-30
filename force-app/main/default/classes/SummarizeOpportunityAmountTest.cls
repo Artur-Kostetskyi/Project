@@ -1,5 +1,5 @@
 @isTest
-public with sharing class SummarizeOpportunityAmountTest {
+private class SummarizeOpportunityAmountTest {
     @testSetup
     static void setup() {
         List<Account> accounts = new List<Account>();

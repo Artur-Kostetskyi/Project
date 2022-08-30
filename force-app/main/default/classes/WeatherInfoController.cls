@@ -16,12 +16,10 @@
  * 
  **************************************************************************************/
 public with sharing class WeatherInfoController {
-    public Account acc { get; set; }
-    public Double temp { get; set; } 
-    public String iconLink { get; set; } 
-    public String description { get; set; } 
+    public Account acc { get; set; } 
     
     public WeatherInfoController(ApexPages.StandardController stdController) {
+        System.debug(ApexPages.currentPage().getParameters().get('Id'));
         try {
             acc = [Select Id, Weather_Description__c, Temperature__c, Weather_Icon__c, ShippingCity, BillingCity
             FROM Account
@@ -49,10 +47,11 @@ public with sharing class WeatherInfoController {
 
     private void setWeatherInfo() {
         WeatherWrapper weatherWrap = makeRequest();
+        System.debug(weatherWrap);
         if (weatherWrap != null) {
             List<WeatherWrapper.Weather> weatherList = weatherWrap.weather;
             acc.Weather_Description__c = weatherList.get(0).description;
-            acc.Temperature__c = temp = weatherWrap.main.temp;
+            acc.Temperature__c = weatherWrap.main.temp;
             acc.Weather_Icon__c = 'https://openweathermap.org/img/wn/' + weatherList.get(0).icon + '.png';
         }
     }

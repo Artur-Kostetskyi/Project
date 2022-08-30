@@ -2,6 +2,7 @@
     <apex:pageBlock title="Weather in {!IF(Account.ShippingCity != '', Account.ShippingCity, Account.BillingCity)}">
         <apex:pageBlockSection columns="2">
             <apex:outputField value="{!acc.Weather_Description__c}" />
+            <apex:outputField value="{!acc.id}" />
             <apex:outputField value="{!acc.Temperature__c}"/>
             <apex:image value="{!acc.Weather_Icon__c}" alt="Weather icon"/>
         </apex:pageBlockSection>  
