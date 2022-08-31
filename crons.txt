@@ -1,0 +1,8 @@
+// Everyday at 10 AM
+System.schedule('ScheduledApexTest', '0 0 10 * * ?', new ScheduleOppsAmountsCalculations());
+
+// once a week (Friday at 1:00 PM)
+System.schedule('ScheduledApexTest', '0 0 13 ? * 6', new ScheduleOppsAmountsCalculations());
+
+//once a month(Last Friday of the Month at 6:00 PM)
+System.schedule('ScheduledApexTest', '0 0 18 ? * 6L', new ScheduleOppsAmountsCalculations());
